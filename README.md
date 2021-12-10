@@ -12,9 +12,9 @@ Requirments:
 
 Pakges: 
 
-  pip install flask_swagger_ui
-  
-  pip install pyjwt
+      pip install flask_swagger_ui
+
+      pip install pyjwt
   
  
  
