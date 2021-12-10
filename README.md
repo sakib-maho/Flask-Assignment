@@ -29,3 +29,5 @@ Pakges:
  
  I have added mysql data base table and requirmets file.
   
+ 
+ Run: python app.py
