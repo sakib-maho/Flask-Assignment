@@ -1,0 +1,195 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "sean",
+    "version": "1.0.0",
+    "title": "Flask API Project",
+    "license": {
+      "name": "MIT",
+      "url": "http://127.0.0.1:5000/api/swagger.json"
+    }
+  },
+  "tags": [
+    {
+      "name": "Hotel Information Request",
+      "description": "Example API for requesting and return Hotel requests"
+    }
+  ],
+  "paths": {
+    "/un": {
+      "parameters": [
+        {
+          "name": "Title",
+          "in": "query",
+          "required": false,
+          "description": "Search with Title",
+          "type": "string"
+        },
+         {
+          "name": "Sleeps",
+          "in": "query",
+          "required": false,
+          "description": "Search with Sleeps",
+          "type": "string"
+        },
+         {
+          "name": "Bedroom",
+          "in": "query",
+          "required": false,
+          "description": "Search with Sleeps",
+          "type": "string"
+        },
+         {
+          "name": "Bathroom",
+          "in": "query",
+          "required": false,
+          "description": "Search with Sleeps",
+          "type": "string"
+        },
+         {
+          "name": "Price",
+          "in": "query",
+          "required": false,
+          "description": "Search with Sleeps",
+          "type": "string"
+        },
+         {
+          "name": "Location",
+          "in": "query",
+          "required": false,
+          "description": "Search with Sleeps",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Hotel Information Request"
+        ],
+        "summary": "Get Hotel Information Request with given different field",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Title",
+            "required": false,
+            "description": "Hotel Title",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+           {
+            "in": "query",
+            "name": "Sleeps",
+            "required": false,
+            "description": "Numbers of Sleeps",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "Bedroom",
+            "required": false,
+            "description": "Numbers of Bedroom",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "Bathroom",
+            "required": false,
+            "description": "Numbers of Bathroom",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "Price",
+            "required": false,
+            "description": "Numbers of Price",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "Location",
+            "required": false,
+            "description": "First Char Must be capital",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          }
+
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/bookRequest"
+            }
+          },
+          "400": {
+            "description": "Failed. Misunderstood Request."
+          },
+          "404": {
+            "description": "Failed. Book request not found."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "id": {
+        "properties": {
+          "uuid": {
+            "type": "string"
+          }
+        }
+      },
+      "bookRequestPostBody": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          }
+        }
+      },
+      "bookRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "format": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "number"
+          }
+        }
+      },
+      "bookRequests": {
+        "type": "object",
+        "properties": {
+          "bookRequest": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/bookRequest"
+            }
+          }
+        }
+      }
+    }
+  }
+}
