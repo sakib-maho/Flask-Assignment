@@ -1,3 +1,7 @@
+# Copyright (c) 2025 sakib-maho
+# Licensed under the MIT License
+# See LICENSE file for details
+
 from flask import redirect
 from flask_swagger_ui import get_swaggerui_blueprint
 import jwt
